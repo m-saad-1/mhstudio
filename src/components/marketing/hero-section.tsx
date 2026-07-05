@@ -25,8 +25,8 @@ export function HeroSection() {
       <div className="pointer-events-none absolute bottom-0 left-1/2 -z-10 h-[35rem] w-[min(100vw,70rem)] -translate-x-1/2 bg-[radial-gradient(ellipse_at_bottom,_rgba(245,158,11,1)_0%,_rgba(245,158,11,0.6)_30%,_rgba(245,158,11,0.25)_50%,_transparent_70%)] blur-[130px] sm:h-[40rem] sm:w-[min(100vw,80rem)]" />
 
       <div className="mx-auto flex min-h-0 w-full max-w-[1200px] flex-col items-center justify-start pt-4 gap-4 text-center sm:min-h-[calc(100svh-96px)] sm:pt-[clamp(3rem,8vh,6rem)] sm:gap-5 lg:gap-6">
-        <span className="eyebrow border-white/10 bg-white/5 text-foreground text-[9px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-1.5">
-          <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-accent" />
+        <span className="eyebrow border-white/10 bg-white/5 text-foreground text-[8px] px-2.5 py-1 sm:text-xs sm:px-4 sm:py-1.5">
+          <Sparkles className="h-2.5 w-2.5 sm:h-4 sm:w-4 text-accent" />
           Modern Websites for Growing Businesses
         </span>
 
@@ -42,11 +42,11 @@ export function HeroSection() {
           </p>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-2 sm:gap-3">
-          <TrackedLink href="/work" eventName="click_hero_portfolio" className="button-primary w-auto min-h-[44px] px-3.5 text-xs sm:min-h-[52px] sm:px-7 sm:text-sm">
+        <div className="flex w-full max-w-[340px] flex-row items-center justify-center gap-2 sm:w-auto sm:max-w-none sm:gap-3">
+          <TrackedLink href="/work" eventName="click_hero_portfolio" className="button-primary flex-1 sm:flex-none sm:w-auto min-h-[44px] px-2 text-xs sm:min-h-[52px] sm:px-7 sm:text-sm">
             View Portfolio
           </TrackedLink>
-          <TrackedLink href="/contact" eventName="click_hero_contact" className="button-secondary w-auto min-h-[44px] px-3.5 text-xs sm:min-h-[52px] sm:px-7 sm:text-sm">
+          <TrackedLink href="/contact" eventName="click_hero_contact" className="button-secondary flex-1 sm:flex-none sm:w-auto min-h-[44px] px-2 text-xs sm:min-h-[52px] sm:px-7 sm:text-sm">
             Free Consultation
           </TrackedLink>
         </div>
