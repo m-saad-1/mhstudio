@@ -89,7 +89,7 @@ export function SiteHeader() {
         aria-hidden={!menuOpen}
       >
         <div className="absolute inset-0 bg-[rgba(9,9,11,0.92)] backdrop-blur-md" />
-        <div className="content-shell relative flex min-h-screen flex-col py-6">
+        <div className="content-shell relative flex h-[100dvh] flex-col overflow-y-auto py-6 pb-12">
           <div className="flex items-center justify-between">
             <Link
               href="/"
@@ -128,13 +128,22 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
-            className="button-primary mt-8 w-full px-6 text-base"
-          >
-            Book Free Consultation
-          </Link>
+          <div className="mt-8 flex flex-col gap-3 pb-8">
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="button-primary w-full px-6 text-base"
+            >
+              Book Free Consultation
+            </Link>
+            <Link
+              href="/contact#contact-methods"
+              onClick={() => setMenuOpen(false)}
+              className="button-secondary w-full px-6 text-base"
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </>

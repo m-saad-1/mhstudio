@@ -53,7 +53,7 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.18 },
+      { threshold: 0.05, rootMargin: "50px" },
     );
 
     if (ref.current) {
