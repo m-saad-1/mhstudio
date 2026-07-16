@@ -60,14 +60,6 @@ export function MockupFrame({ item, compact = false }: MockupFrameProps) {
             >
               Visit Website
             </TrackedLink>
-            <span className="text-sm text-zinc-700">|</span>
-            <TrackedLink 
-              href={`/case-study/${item.slug}`} 
-              eventName="click_portfolio_case_study"
-              className="text-sm font-medium text-amber-500 transition-colors hover:text-amber-400 hover:underline"
-            >
-              View Case Study
-            </TrackedLink>
           </div>
         </div>
       </div>

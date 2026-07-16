@@ -27,6 +27,16 @@ export default function ContactPage() {
             <ContactForm />
           </Reveal>
           <div className="grid gap-6">
+            <Reveal delayMs={40} className="surface-card relative overflow-hidden p-6 sm:p-8 border border-amber-500/10 bg-[rgba(245,158,11,0.02)]">
+              <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-[radial-gradient(circle,_rgba(245,158,11,0.1)_0%,_transparent_70%)] blur-[40px]" />
+              <h2 className="text-2xl font-semibold text-foreground">Want to see a demo first?</h2>
+              <p className="mt-3 text-sm leading-[1.7] text-foreground-body sm:text-base">
+                We can build a free, custom interactive mockup showing exactly how our AI solutions, automations, or web apps would work for you.
+              </p>
+              <Link href="/demo" className="button-primary mt-6 inline-flex w-full justify-center px-6 py-2.5 text-sm sm:w-auto">
+                Get Free Demo
+              </Link>
+            </Reveal>
             <Reveal delayMs={80} id="contact-methods" className="surface-card p-6 sm:p-8">
               <h2 className="text-2xl font-semibold text-foreground">Direct contact options</h2>
               <div className="mt-6 grid gap-4">

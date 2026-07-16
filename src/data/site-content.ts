@@ -13,7 +13,7 @@ export type Metric = {
 export type PortfolioItem = {
   slug: string;
   title: string;
-  category: "Restaurant" | "Hotels" | "Bar";
+  category: "Restaurant" | "Hotels" | "Bar" | "AI & Automation";
   clientType: string;
   shortDescription: string;
   overview: string;
@@ -33,10 +33,10 @@ export type PortfolioItem = {
 
 export const siteConfig = {
   name: "MhStudio",
-  tagline: "Premium websites for growing local businesses.",
+  tagline: "Premium software, custom AI systems, and automated workflows.",
   description:
-    "MhStudio designs and develops premium, conversion-focused websites for local businesses that want to look modern and win more customers.",
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "mhsaad23305@gmail.com",
+    "MhStudio develops high-performance applications, custom AI integrations, and scalable software systems engineered for modern business growth.",
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "saad@mhstudios.online",
   whatsappHref: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "https://wa.me/+923429842565",
   calendarHref: process.env.NEXT_PUBLIC_CALENDAR_URL ?? "https://calendly.com/muhammadsaad23305/30min",
   phoneLabel: "WhatsApp consultation",
@@ -199,40 +199,50 @@ export const stats: Metric[] = [
 
 export const whyChooseItems = [
   {
-    title: "Fast Loading",
-    problem: "Your visitors will not wait for a slow website to catch up.",
-    solution: "MhStudio ships lean pages, optimized media, and fast interactions that respect performance from day one.",
+    title: "Business-First Thinking",
+    problem: "Technology is only the tool.",
+    solution: "We start by understanding your business goals and growth strategy before writing code.",
   },
   {
-    title: "Mobile First",
-    problem: "Most local-business visitors will meet you on their phone first.",
-    solution: "Every layout, CTA, and form is designed to convert on smaller screens before scaling up to desktop.",
+    title: "Built for Scale",
+    problem: "Designed to grow with you.",
+    solution: "Solutions are architected with future growth and long-term scalability in mind.",
   },
   {
-    title: "SEO Ready",
-    problem: "A beautiful website still fails if customers cannot find it.",
-    solution: "Clean structure, metadata, content hierarchy, and technical fundamentals are built into the implementation.",
+    title: "Transparent Process",
+    problem: "No surprises along the way.",
+    solution: "Clear communication and defined milestones keep every project predictable.",
   },
   {
-    title: "Easy to Manage",
-    problem: "You should not need a developer for every text or image update.",
-    solution: "The content architecture is organized so updates can stay structured and predictable as the site grows.",
+    title: "Modern Engineering",
+    problem: "Built using best practices.",
+    solution: "Clean architecture and production-ready standards ensure long-term reliability.",
   },
   {
-    title: "Secure",
-    problem: "Trust breaks quickly when a site feels broken, exposed, or outdated.",
-    solution: "Best-practice foundations, clear contact flows, and dependable hosting readiness are part of the build.",
+    title: "Quality Without Compromise",
+    problem: "Every detail matters.",
+    solution: "Quality is built into every stage, from user experience to performance.",
   },
   {
-    title: "Modern Design",
-    problem: "Dated design makes a strong business look less credible.",
-    solution: "The visual system stays premium, minimal, and polished without sacrificing readability or speed.",
+    title: "Long-Term Partnership",
+    problem: "Beyond project delivery.",
+    solution: "We continue supporting and scaling your product as your business evolves.",
+  },
+  {
+    title: "Tailored Solutions",
+    problem: "No templates. No shortcuts.",
+    solution: "Every solution is designed around your specific business needs.",
+  },
+  {
+    title: "Results That Matter",
+    problem: "Focused on business impact.",
+    solution: "Success is measured by better user experiences and measurable business growth.",
   },
 ];
 
 export const serviceCards = [
   {
-    title: "Website Development",
+    title: "Web Development",
     description: "Mobile-optimized frontend development that feels smooth, fast, and polished on every screen.",
     features: ["Performance-first build", "Responsive breakpoints", "Accessible interaction patterns"],
     icon: "monitor-smartphone",
@@ -250,7 +260,7 @@ export const serviceCards = [
     icon: "shopping-cart",
   },
   {
-    title: "AI Chatbot Development",
+    title: "Workflow Automation",
     description: "Custom AI assistants built to handle customer support, lead generation, and inquiries 24/7.",
     features: ["Natural Language", "Contextual Memory", "CRM Integration"],
     icon: "bot",
@@ -343,7 +353,7 @@ export const serviceCards = [
 
 export const serviceSections = [
   {
-    title: "Website Development",
+    title: "Web Development",
     description: "Modern frontend development that turns approved designs into responsive, production-ready pages.",
     points: ["Modern stack", "Responsive implementation", "Accessible markup"],
     icon: "code-xml",
@@ -361,7 +371,7 @@ export const serviceSections = [
     icon: "shopping-cart",
   },
   {
-    title: "AI Chatbot Development",
+    title: "Workflow Automation",
     description: "Custom AI assistants built to handle customer support, lead generation, and inquiries 24/7.",
     points: ["Natural Language", "Contextual Memory", "CRM Integration"],
     icon: "bot",
@@ -453,25 +463,19 @@ export const serviceSections = [
 ];
 
 export const websiteFeatures = [
-  { title: "Responsive Design", description: "Layouts that feel intentional from 320px mobile screens through large desktops.", icon: "smartphone" },
-  { title: "Lightning Fast Performance", description: "A fast site keeps attention, improves trust, and supports conversion.", icon: "zap" },
-  { title: "Google Maps", description: "Location visibility for businesses that depend on local discovery and foot traffic.", icon: "map-pinned" },
-  { title: "Booking Forms", description: "Inquiry and booking flows designed to turn attention into action.", icon: "calendar" },
-  { title: "Online Contact Forms", description: "Clear, structured forms that make it easier for prospects to reach out.", icon: "mail" },
-  { title: "WhatsApp Integration", description: "A direct path for fast conversations when clients prefer messaging.", icon: "message-circle-more" },
-  { title: "Social Media Links", description: "Connected brand touchpoints that reinforce trust and activity.", icon: "share-2" },
-  { title: "Image Galleries", description: "Structured galleries for menus, before-and-after work, spaces, or teams.", icon: "images" },
-  { title: "Menu Showcase", description: "Clean content blocks for restaurants, cafes, and service packages.", icon: "utensils-crossed" },
-  { title: "Pricing Tables", description: "Simple packages and service comparisons built for quick decision-making.", icon: "badge-dollar-sign" },
-  { title: "Testimonials", description: "A future-ready proof section when verified client stories are available.", icon: "message-square-quote" },
-  { title: "Blog", description: "An optional content system for SEO, updates, and thought leadership.", icon: "newspaper" },
-  { title: "SEO", description: "Technical structure and content hierarchy ready to support discoverability.", icon: "search-check" },
-  { title: "Analytics", description: "Measurement-ready implementation for campaign and conversion tracking.", icon: "chart-no-axes-column" },
-  { title: "Call-to-Action Sections", description: "Clear decision points that move visitors toward contact or booking.", icon: "megaphone" },
-  { title: "Email Integration", description: "A structured lead path designed to work cleanly with inbox workflows.", icon: "mail-check" },
-  { title: "Google Reviews", description: "Social proof placement for local businesses that win on reputation.", icon: "star" },
-  { title: "Location Pages", description: "A scalable content pattern for multi-area service businesses.", icon: "map" },
-  { title: "Secure Hosting Support", description: "Launch guidance that keeps delivery polished and dependable.", icon: "server-cog" },
+  { title: "High Performance", description: "Fast experiences create better first impressions. Optimized code and efficient asset delivery ensure your application loads quickly.", icon: "zap" },
+  { title: "AI Integration", description: "Bring intelligence into your business. Integrate AI chatbots, assistants, and LLM-powered workflows directly into your application.", icon: "bot" },
+  { title: "Workflow Automation", description: "Reduce repetitive work. Automate business processes, notifications, and scheduling to improve efficiency.", icon: "workflow" },
+  { title: "Secure Authentication", description: "Protect users and business data. Implement secure authentication with role-based access control and enterprise security practices.", icon: "shield-check" },
+  { title: "Admin Dashboards", description: "Manage everything from one place. Custom dashboards for managing users, content, orders, and business operations.", icon: "layout-dashboard" },
+  { title: "API & Third-Party Integrations", description: "Connect the tools your business already uses. Integrate payment gateways, CRMs, and external platforms.", icon: "plug" },
+  { title: "SEO & Discoverability", description: "Make it easy for customers to find you. Technical SEO and search engine best practices are built into every project.", icon: "search-check" },
+  { title: "Scalable Architecture", description: "Ready to grow with your business. Applications are built with clean architecture that supports future features and increasing traffic.", icon: "layers" },
+  { title: "Cloud Deployment", description: "Reliable deployment from day one. Deployment to modern cloud platforms with CI/CD pipelines and secure hosting configurations.", icon: "cloud" },
+  { title: "SaaS Development", description: "Launch products with confidence. Build scalable SaaS platforms with subscriptions, multi-tenant architecture, and billing.", icon: "box" },
+  { title: "MVP Development", description: "Validate ideas faster. Rapidly build production-ready MVPs to help startups launch and collect feedback.", icon: "rocket" },
+  { title: "E-Commerce Solutions", description: "Sell products online. Develop secure stores with product management, payments, and order tracking.", icon: "shopping-cart" },
+  { title: "Ongoing Support & Maintenance", description: "Your product doesn't stop after launch. Continuous maintenance, security updates, and technical support ensure your application stays reliable.", icon: "wrench" },
 ];
 
 export const processSteps = [
@@ -523,39 +527,39 @@ export const technologyGroups = [
 
 export const faqs = [
   {
-    question: "How long does a website take?",
+    question: "How long does a project typically take?",
     answer:
-      "Most marketing sites move from planning to launch in a few focused phases, depending on content readiness and the number of pages.",
+      "Timelines vary by scope. A modern marketing website usually takes 2-6 weeks, while MVPs, SaaS platforms, and complex AI integrations can take 4-12 weeks.",
   },
   {
-    question: "Do you redesign websites?",
+    question: "Can you modernize an existing product or application?",
     answer:
-      "Yes. MhStudio can modernize outdated websites by improving the visual system, structure, and conversion flow.",
+      "Yes. We can refactor legacy codebases, improve UI/UX, integrate new AI features, and optimize performance for existing digital products.",
   },
   {
-    question: "Can you maintain my website?",
+    question: "Do you offer post-launch support and maintenance?",
     answer:
-      "Yes. Ongoing support can cover updates, content changes, and keeping the site polished after launch.",
+      "Absolutely. We provide ongoing support, security updates, and performance monitoring to ensure your application remains reliable as your business scales.",
   },
   {
-    question: "Can I edit the website later?",
+    question: "Will I be able to manage the platform after launch?",
     answer:
-      "The structure is planned to stay maintainable so future edits and expansions are easier to manage cleanly.",
+      "Yes. We build with maintainability in mind. We provide custom admin dashboards and scalable architectures so your team can manage content and data effortlessly.",
   },
   {
-    question: "Do you provide hosting?",
+    question: "Do you handle hosting and cloud deployment?",
     answer:
-      "Hosting support and deployment guidance are included in the service model, with modern platforms recommended where appropriate.",
+      "Yes. We set up production-ready environments using modern cloud infrastructure like Vercel, AWS, or Cloudflare, complete with CI/CD pipelines.",
   },
   {
-    question: "Do you help with SEO?",
+    question: "How do you ensure the product performs well?",
     answer:
-      "Technical SEO is built into the foundation through metadata, semantic structure, speed, and content hierarchy.",
+      "Performance and SEO are built into our foundation. We use optimized code, modern rendering techniques, semantic architecture, and strict quality assurance.",
   },
   {
-    question: "Can you build booking systems?",
+    question: "Can you integrate third-party APIs and tools?",
     answer:
-      "Yes. MhStudio can structure booking-driven pages and integrate booking flows based on the business needs.",
+      "Yes. We integrate CRMs, payment gateways, booking systems, LLMs (like OpenAI), and any other third-party services your business relies on.",
   },
 ];
 
@@ -749,17 +753,17 @@ export const contactFaqs = [
   {
     question: "What should I prepare before booking a consultation?",
     answer:
-      "Bring your goals, current website details if you have one, examples you like, and any rough idea of timeline or budget.",
+      "Bring your business goals, details about any existing software or website, examples of products you like, and a rough idea of your timeline or budget.",
   },
   {
-    question: "Can MhStudio help if I only need one landing page?",
+    question: "Do you take on smaller projects like single landing pages or minor AI integrations?",
     answer:
-      "Yes. Single-goal landing pages are part of the service offering when the objective is clear.",
+      "Yes. Whether you need a focused landing page, a specific API integration, or a fully custom SaaS product, we can scale our services to fit your requirements.",
   },
   {
     question: "What happens after I send the contact form?",
     answer:
-      "The next step is a consultation to align on scope, timeline, and the best structure for your business goals.",
+      "We will schedule a brief discovery call to understand your operational challenges, align on scope and timeline, and determine the best architectural approach for your business.",
   },
 ];
 
@@ -880,6 +884,28 @@ export const portfolioItems: PortfolioItem[] = [
     development:
       "Built a flexible content management architecture allowing the client to easily update daily sports events and rotating food vendors.",
   },
+  {
+    slug: "multi-vertical-ai-receptionist-chatbot",
+    title: "AI Receptionist Chatbot",
+    category: "AI & Automation",
+    clientType: "Internal Demo / SaaS Concept",
+    shortDescription: "A multi-vertical AI receptionist chatbot demo designed for dental clinics, gyms, salons, and restaurants.",
+    overview:
+      "An intelligent AI receptionist mockup showcasing tailored response personas and appointment-booking workflows for dental clinics, gyms, salons, and restaurants.",
+    industry: "AI & Automation",
+    technologies: ["React.js", "Node.js", "Express", "MongoDB", "Gemini AI", "Tailwind CSS"],
+    features: ["Custom business personas", "Lead capture forms", "Automated email notifications", "Interactive preview"],
+    image: "/images/Multi-vertical-Ai-receptionist-chatbot.avif",
+    imageAlt: "Multi-Vertical AI Receptionist Chatbot website preview showing chat pane and live lead dashboard.",
+    liveHref: "https://multireceptionai.vercel.app/",
+    performance: "100/100 Core Web Vitals score",
+    results: ["Increased demo bookings", "Automated lead collection", "Flawless API performance"],
+    challenge: "Designing a clean, single-page interface hosting four distinct AI personalities.",
+    goals: ["Qualify leads automatically", "Deliver instant chatbot responses", "Provide a premium multi-vertical experience"],
+    design: "High contrast dark mode, dashboard views, and responsive messaging bubbles.",
+    development:
+      "Developed with a responsive React frontend, Express/Node backend, and direct integration with Gemini AI API for prompt-driven responses.",
+  },
 ];
 
 export const portfolioFilters = [
@@ -887,4 +913,5 @@ export const portfolioFilters = [
   "Restaurant",
   "Hotels",
   "Bar",
+  "AI & Automation",
 ] as const;

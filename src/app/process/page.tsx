@@ -1,50 +1,229 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { Check, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/marketing/page-hero";
 import { Reveal } from "@/components/ui/reveal";
-import { processSteps } from "@/data/site-content";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { getIcon } from "@/components/ui/icon-map";
+import dynamic from "next/dynamic";
+import {
+  corePhases,
+  developmentPaths,
+  clientInvolvement,
+  qualityAssurance,
+  processFaqs,
+  techTimeline
+} from "./data";
+
+const FaqAccordion = dynamic(() => import("@/components/ui/faq-accordion").then((mod) => mod.FaqAccordion));
 
 export const metadata: Metadata = {
-  title: "How We Work",
-  description: "See the MhStudio process from discovery and planning through design, development, testing, and launch.",
+  title: "Process | How We Work",
+  description: "Whether you’re building a business website, AI-powered app, or full-scale product, our process ensures quality, transparency, and predictable timelines.",
 };
 
 export default function ProcessPage() {
   return (
     <>
       <PageHero
-        eyebrow="Process"
+        eyebrow="Workflow & Methodology"
         title="A clear workflow keeps premium work moving without confusion."
-        description="The process is designed to reduce ambiguity, keep decisions visible, and make sure the website supports the business goals before and after launch."
-        primaryCta={{ label: "Book Consultation", href: "/contact" }}
-        secondaryCta={{ label: "View Work", href: "/work" }}
+        description="Whether you’re building a business website, AI-powered app, or full-scale product, our process ensures quality, transparency, and predictable timelines."
+        primaryCta={{ label: "Start Your Project", href: "/contact" }}
+        secondaryCta={{ label: "View Our Work", href: "/work" }}
       />
-      <section className="section-space">
-        <div className="content-shell grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <Reveal key={step.step} delayMs={index * 60} className="surface-card p-6">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-400 text-sm font-bold text-zinc-950">
-                  {step.step}
-                </div>
-                <div>
-                  <h2 className="text-2xl font-semibold text-foreground">{step.title}</h2>
-                  <p className="text-sm text-foreground-muted">MhStudio workflow stage</p>
-                </div>
-              </div>
-              <p className="mt-5 text-sm leading-[1.7] text-foreground-body sm:text-base">{step.description}</p>
-              <div className="mt-5 grid gap-2">
-                {step.bullets.map((bullet) => (
-                  <div key={bullet} className="flex items-center gap-2 text-sm text-foreground-body">
-                    <Check className="h-4 w-4 text-accent" />
-                    <span>{bullet}</span>
+
+      {/* 2. Core Development Process */}
+      <Reveal as="section" className="section-space section-divider">
+        <div className="content-shell space-y-10">
+          <SectionHeading
+            eyebrow="The Core Process"
+            title="Six steps to production readiness."
+            description="Our foundational framework for building reliable and scalable digital products."
+          />
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {corePhases.map((phase, index) => {
+              const Icon = getIcon(phase.icon);
+              return (
+                <Reveal key={phase.step} delayMs={index * 60} className="surface-card flex flex-col p-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-400 text-sm font-bold text-zinc-950">
+                      {phase.step}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground">{phase.title}</h3>
+                      <p className="text-sm font-medium text-amber-500">{phase.tagline}</p>
+                    </div>
                   </div>
-                ))}
-              </div>
-            </Reveal>
-          ))}
+                  <p className="mt-5 text-sm leading-[1.7] text-foreground-body flex-grow">
+                    {phase.description}
+                  </p>
+                  <div className="mt-6 border-t border-white/10 pt-4">
+                    <ul className="grid gap-2">
+                      {phase.activities.map((activity) => (
+                        <li key={activity} className="flex items-center gap-2 text-sm text-foreground-body">
+                          <Check className="h-4 w-4 text-accent shrink-0" />
+                          <span>{activity}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
-      </section>
+      </Reveal>
+
+      {/* 3. Development Paths */}
+      <Reveal as="section" className="section-space section-divider">
+        <div className="content-shell space-y-10">
+          <SectionHeading
+            eyebrow="Development Paths"
+            title="Every business has unique requirements."
+            description="Not every project follows the exact same path. We tailor the workflow to your specific product type and goals."
+          />
+          <div className="grid gap-6">
+            {developmentPaths.map((path, index) => (
+              <Reveal key={path.title} delayMs={index * 50} className="surface-card p-6 md:p-8">
+                <div className="grid gap-6 md:grid-cols-[1fr_2fr] md:items-center">
+                  <div className="space-y-3">
+                    <h3 className="text-2xl font-semibold text-foreground">{path.title}</h3>
+                    <p className="text-sm leading-[1.7] text-foreground-body">{path.description}</p>
+                    {path.timeline && (
+                      <p className="inline-flex items-center rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-foreground-muted">
+                        Typical Timeline: {path.timeline}
+                      </p>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {path.steps.map((step, stepIdx) => (
+                      <div key={step} className="flex items-center gap-2">
+                        <span className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-foreground-body">
+                          {step}
+                        </span>
+                        {stepIdx < path.steps.length - 1 && (
+                          <ArrowRight className="h-4 w-4 text-foreground-muted shrink-0" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* 4. What Happens During the Project? */}
+      <Reveal as="section" className="section-space section-divider">
+        <div className="content-shell space-y-10">
+          <SectionHeading
+            eyebrow="Client Involvement"
+            title="What happens during the project?"
+            description="We keep you involved and informed without overwhelming your schedule."
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {clientInvolvement.map((item, index) => {
+              const Icon = getIcon(item.icon);
+              return (
+                <Reveal key={item.title} delayMs={index * 50} className="surface-card p-6">
+                  <span className="mb-4 inline-flex rounded-full bg-white/5 p-3 text-accent">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-[1.7] text-foreground-body">{item.description}</p>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* 5. Quality Assurance & 6. Tech Timeline side-by-side or stacked */}
+      <Reveal as="section" className="section-space section-divider">
+        <div className="content-shell grid gap-10 lg:grid-cols-2">
+          
+          <div className="space-y-8">
+            <div>
+              <span className="eyebrow">Engineering Standards</span>
+              <h2 className="mt-2 text-3xl font-semibold text-foreground">Quality Assurance</h2>
+              <p className="mt-3 text-foreground-body">Quality is built into every stage, not just bolted on at the end.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {qualityAssurance.map((qa, i) => {
+                const Icon = getIcon(qa.icon);
+                return (
+                  <Reveal key={qa.title} delayMs={i * 30} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+                    <Icon className="h-5 w-5 text-accent shrink-0" />
+                    <span className="text-sm font-medium text-foreground">{qa.title}</span>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <span className="eyebrow">The Stack</span>
+              <h2 className="mt-2 text-3xl font-semibold text-foreground">Technologies Used</h2>
+              <p className="mt-3 text-foreground-body">Modern, scalable, and production-ready technologies power our workflow.</p>
+            </div>
+            <div className="relative border-l border-white/10 pl-6 space-y-6">
+              {techTimeline.map((item, i) => {
+                const Icon = getIcon(item.icon);
+                return (
+                  <Reveal key={item.stage} delayMs={i * 40} className="relative">
+                    <div className="absolute -left-[41px] top-1 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-zinc-950 text-accent">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-semibold text-foreground">{item.stage}</h4>
+                      <p className="text-sm text-foreground-muted">{item.tech}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+
+        </div>
+      </Reveal>
+
+      {/* 7. Frequently Asked Questions */}
+      <Reveal as="section" className="section-space section-divider">
+        <div className="content-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Questions about our process."
+            description="Clear answers about how we manage timelines, feedback, and post-launch support."
+          />
+          <FaqAccordion items={processFaqs} />
+        </div>
+      </Reveal>
+
+      {/* 8. Final CTA */}
+      <Reveal as="section" className="section-space">
+        <div className="content-shell">
+          <div className="surface-card relative overflow-hidden px-8 py-12 sm:px-10 sm:py-14 lg:px-14 text-center flex flex-col items-center">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(245,158,11,0.15)_0%,_transparent_70%)] blur-[100px]" />
+            <div className="relative space-y-5 max-w-3xl">
+              <span className="eyebrow mx-auto">Ready to Build Something Great?</span>
+              <h2 className="text-[2rem] font-semibold leading-[1.1] text-foreground sm:text-[2.8rem]">
+                Start Your Project
+              </h2>
+              <p className="text-base leading-[1.7] text-foreground-body sm:text-lg">
+                Whether you're launching your first website, validating an MVP, building a SaaS platform, or integrating AI into your business, MHStudio follows a structured process that keeps projects transparent, scalable, and focused on results.
+              </p>
+              <div className="pt-4">
+                <Link href="/contact" className="button-primary px-8 text-sm sm:w-auto">
+                  Get in Touch
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Reveal>
     </>
   );
 }

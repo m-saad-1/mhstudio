@@ -67,8 +67,8 @@ export function SiteHeader() {
             </nav>
 
             <div className="hidden justify-self-end pr-3 lg:block">
-              <Link href="/contact" className="button-primary px-6 text-sm">
-                Book Free Consultation
+              <Link href="/demo" className="button-primary px-6 text-sm">
+                Get Free Demo
               </Link>
             </div>
 
@@ -130,14 +130,14 @@ export function SiteHeader() {
 
           <div className="mt-8 flex flex-col gap-3 pb-8">
             <Link
-              href="/contact"
+              href="/demo"
               onClick={() => setMenuOpen(false)}
               className="button-primary w-full px-6 text-base"
             >
-              Book Free Consultation
+              Get Free Demo
             </Link>
             <Link
-              href="/contact#contact-methods"
+              href="/contact"
               onClick={() => setMenuOpen(false)}
               className="button-secondary w-full px-6 text-base"
             >

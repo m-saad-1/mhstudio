@@ -27,6 +27,22 @@ const blurData = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTYnIGhlaWdodD0nMTAn
 export default function Home() {
   const featuredProjects = portfolioItems.slice(0, 6);
 
+  const homeServiceTitles = [
+    "AI-Powered Web Applications",
+    "Custom AI Solutions",
+    "Desktop Application",
+    "Hosting & Deployment",
+    "E-commerce Development",
+    "Workflow Automation",
+    "Web Development",
+    "Landing Pages",
+    "Business Process Automation"
+  ];
+
+  const homeServiceCards = homeServiceTitles
+    .map(title => serviceCards.find(service => service.title === title))
+    .filter((service): service is Exclude<typeof service, undefined> => !!service);
+
   return (
     <>
       <HeroSection />
@@ -39,12 +55,10 @@ export default function Home() {
             description="Each service is framed around business outcomes, not just deliverables, so the value stays clear for owners and decision-makers."
           />
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {serviceCards.map((service, index) => {
+            {homeServiceCards.map((service, index) => {
               const Icon = getIcon(service.icon);
-              const columnSpan =
-                index === 0 || index === 3
-                  ? "xl:col-span-2"
-                  : "";
+              const isWide = service.title.length > 20;
+              const columnSpan = isWide ? "md:col-span-2" : "";
 
               return (
                 <Reveal
@@ -60,14 +74,6 @@ export default function Home() {
                       <h3 className="text-2xl font-semibold text-foreground">{service.title}</h3>
                       <p className="text-sm leading-[1.7] text-foreground-body sm:text-base">{service.description}</p>
                     </div>
-                    <ul className="grid gap-2">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-foreground-body">
-                          <Check className="h-4 w-4 text-accent" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                   <Link href="/services" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
                     Learn More
@@ -170,9 +176,9 @@ export default function Home() {
       <Reveal as="section" className="section-space section-divider">
         <div className="content-shell space-y-10">
           <SectionHeading
-            eyebrow="Website Features"
-            title="Feature sets that support customer acquisition, not just page decoration."
-            description="The feature library covers the building blocks local businesses usually need to launch, explain, and convert effectively online."
+            eyebrow="Website & Software Capabilities"
+            title="Modern digital products built for performance, scalability, and business growth."
+            description="Every project is engineered with production-ready architecture, modern technologies, and features that help businesses launch faster, automate workflows, and scale confidently."
           />
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {websiteFeatures.map((feature, index) => {
@@ -310,17 +316,17 @@ export default function Home() {
             <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-[radial-gradient(circle,_rgba(245,158,11,0.18)_0%,_transparent_72%)] blur-[140px]" />
             <div className="relative grid gap-8 lg:grid-cols-[1.4fr_0.9fr] lg:items-center">
               <div className="space-y-5">
-                <span className="eyebrow">Final CTA</span>
-                <h2 className="max-w-[14ch] text-[2rem] font-semibold leading-[1.1] text-foreground sm:text-[2.8rem]">
-                  Ready to grow your business online?
+                <span className="eyebrow">Interactive Demo</span>
+                <h2 className="max-w-[16ch] text-[2rem] font-semibold leading-[1.1] text-foreground sm:text-[2.8rem]">
+                  See our solutions in action.
                 </h2>
                 <p className="max-w-2xl text-base leading-[1.7] text-foreground-body sm:text-lg">
-                  Let&apos;s build a website your customers will love, trust, and act on.
+                  Request a free, custom interactive demo built specifically for your business goals and workflows.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
-                <Link href="/contact" className="button-primary w-full px-6 text-sm sm:w-auto lg:w-full lg:max-w-xs">
-                  Book a Free Consultation
+                <Link href="/demo" className="button-primary w-full px-6 text-sm sm:w-auto lg:w-full lg:max-w-xs">
+                  Request Free Demo
                 </Link>
                 <Link href="/contact" className="button-secondary w-full px-6 text-sm sm:w-auto lg:w-full lg:max-w-xs">
                   Get Started

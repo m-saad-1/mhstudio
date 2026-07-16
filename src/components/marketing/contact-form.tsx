@@ -33,7 +33,7 @@ export function ContactForm() {
       <div className="mb-6 space-y-3">
         <h2 className="text-2xl font-semibold text-foreground">Tell us about your project</h2>
         <p className="text-sm leading-[1.7] text-foreground-body sm:text-base">
-          This form uses EmailJS to send your inquiry directly to mhsaad23305@gmail.com.
+          Fill out the form below to share your project details and goals directly with our team.
         </p>
       </div>
 
@@ -72,7 +72,7 @@ export function ContactForm() {
                 budget: formState.budget,
                 timeline: formState.timeline,
                 message: formState.message,
-                to_email: "mhsaad23305@gmail.com",
+                to_email: "saad@mhstudios.online",
               },
               "C9krtPTiFCls0Vayb" // Public Key
             );

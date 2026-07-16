@@ -27,7 +27,7 @@ export default function ServicesPage() {
             const Icon = getIcon(service.icon);
 
             return (
-              <Reveal key={service.title} delayMs={index * 60} className="surface-card flex h-full flex-col p-6">
+              <Reveal key={`${service.title}-${index}`} delayMs={index * 60} className="surface-card flex h-full flex-col p-6">
                 <span className="inline-flex w-fit rounded-[18px] border border-amber-400/15 bg-amber-400/10 p-3 text-accent">
                   <Icon className="h-6 w-6" strokeWidth={2} />
                 </span>
